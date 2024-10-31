@@ -1,0 +1,93 @@
+<!-- Preloader -->
+<div class="preloader" style="opacity: 0; display: none;">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">Histórico de Conversões</h1>
+                </div>
+                <ul class="breadcrumb-nav">
+                    <li><a routerLink="/pagina-inicial">Página Inicial</a></li>
+                    <li>Histórico de Conversões</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                <div class="single-inner text-center">
+                    <div class="post-details">
+                        <div class="main-content-head">
+                            <div class="meta-information">
+                                <div class="history-container">
+                                    <div class="history-header">
+                                        <h3>Histórico de Conversões</h3>
+                                        <button *ngIf="historico.length > 0" class="clear-history-btn"
+                                            (click)="limparHistorico()">
+                                            <i class="lni lni-trash-can"></i>
+                                            Limpar Histórico
+                                        </button>
+                                    </div>
+
+                                    <div class="history-content" *ngIf="historico.length > 0">
+                                        <div class="conversion-card" *ngFor="let item of historico; let i = index">
+                                            <div class="conversion-header">
+                                                <div class="conversion-date">
+                                                    <i class="lni lni-calendar"></i>
+                                                    {{ item.data }} às {{ item.hora }}
+                                                </div>
+                                                <button class="delete-btn" (click)="excluirConversao(i)" title="Excluir conversão">
+                                                    <i class="lni lni-trash-can"></i>
+                                                </button>
+                                            </div>
+
+                                            <div class="conversion-body">
+                                                <div class="amount-from">
+                                                    <span class="amount">{{ item.valor | number:'1.2-2' }}</span>
+                                                    <span class="currency">{{ item.moedaOrigem }}</span>
+                                                </div>
+
+                                                <div class="conversion-arrow">
+                                                    <i class="lni lni-arrow-right"></i>
+                                                </div>
+
+                                                <div class="amount-to">
+                                                    <span class="amount">{{ item.resultado | number:'1.2-2' }}</span>
+                                                    <span class="currency">{{ item.moedaDestino }}</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="conversion-footer">
+                                                <div class="exchange-rate">
+                                                    <span class="rate-label">Taxa de câmbio:</span>
+                                                    <span class="rate-value">{{ item.taxa | number:'1.4-4' }}</span>
+                                                </div>
+                                            </div>
+                                            <button (click)="excluirConversao(i)" class="btn-excluir">
+                                                <span class="material-icons">delete</span>
+                                              </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

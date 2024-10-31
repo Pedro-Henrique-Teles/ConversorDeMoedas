@@ -1,0 +1,127 @@
+/* Geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background-color: #d5006d; // Rosa
+    color: white;
+    padding: 15px 0;
+
+    .page-title {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .breadcrumb-nav {
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: inline;
+            margin-right: 10px;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* Seção Principal */
+.section {
+    padding: 50px 0;
+}
+
+/* Card Container */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Card Header */
+.card-header {
+    margin-bottom: 20px;
+
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #333;
+    }
+}
+
+/* Search Container */
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    .search-input {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #d5006d; // Rosa
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: #b0003a; // Vermelho escuro
+            outline: none;
+        }
+    }
+}
+
+/* Tabela */
+.table-container {
+    margin-top: 20px;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th.mat-header-cell {
+            background-color: #d5006d; // Rosa
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td.mat-cell {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+
+            &:hover {
+                background-color: #ffe0f0; // Rosa muito claro
+            }
+        }
+    }
+}
+
+/* Paginador */
+.mat-paginator {
+    margin-top: 20px;
+}
+
+/* Estilização para dispositivos móveis */
+@media (max-width: 768px) {
+    .search-container {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .card-header h1 {
+        font-size: 1.5rem;
+    }
+}

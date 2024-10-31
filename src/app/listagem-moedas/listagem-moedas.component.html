@@ -1,0 +1,70 @@
+<div class="preloader" style="opacity: 0; display: none;">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">Listagem de Moedas</h1>
+                </div>
+                <ul class="breadcrumb-nav">
+                    <li><a href="pagina-inicial">Página Inicial</a></li>
+                    <li>Listagem de Moedas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="section">
+    <div class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Coleção Mundial de Moedas</h1>
+                </div>
+
+                <div class="search-container">
+                    <input class="search-input" (keyup)="applyFilter($event)"
+                        placeholder="Pesquisar moedas por código, nome ou descrição...">
+                </div>
+
+                <div class="table-container">
+                    <table mat-table [dataSource]="dataSource" matSort>
+                        <!-- Código Column -->
+                        <ng-container matColumnDef="codigo">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
+                            <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
+                        </ng-container>
+
+                        <!-- Moeda Column -->
+                        <ng-container matColumnDef="moeda">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Moeda </th>
+                            <td mat-cell *matCellDef="let row"> {{row.moeda}} </td>
+                        </ng-container>
+
+                        <!-- Descrição Column -->
+                        <ng-container matColumnDef="descricao">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+                            <td mat-cell *matCellDef="let row"> {{row.descricao}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecione a página de moedas">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

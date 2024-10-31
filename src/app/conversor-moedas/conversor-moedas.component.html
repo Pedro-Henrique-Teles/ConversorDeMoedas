@@ -1,0 +1,137 @@
+<div class="preloader" style="opacity: 0; display: none;">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">Conversor de Moedas</h1>
+                </div>
+                <ul class="breadcrumb-nav">
+                    <li><a href="pagina-inicial">Página Inicial</a></li>
+                    <li>Conversor de Moedas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
+                <div class="single-inner">
+                    <div class="post-details">
+                        <div class="main-content-head">
+                            <div class="meta-information">
+                                <div class="modern-converter-container">
+                                    <div class="modern-converter-card">
+                                        <div class="modern-card-header">
+                                            <div class="header-content">
+                                                <h3>Conversor de Moedas</h3>
+                                                <p>Converta valores entre moedas mundiais instantaneamente</p>
+                                            </div>
+                                            <div class="header-icon">
+                                                <i class="lni lni-money-protection"></i>
+                                            </div>
+                                        </div>
+
+                                        <form (ngSubmit)="converter()" class="modern-converter-form">
+                                            <div class="modern-input-group">
+                                                <div class="modern-amount-input">
+                                                    <div class="input-wrapper">
+                                                        <i class="lni lni-dollar"></i>
+                                                        <input type="number" [(ngModel)]="valor" name="valor"
+                                                            placeholder="0.00" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="modern-currency-selectors">
+                                                    <div class="currency-select-wrapper from">
+                                                        <label>Moeda de origem</label>
+                                                        <select [(ngModel)]="moedaOrigem" name="moedaOrigem" required>
+                                                            <option *ngFor="let moeda of moedas" [value]="moeda">
+                                                                {{ moeda }}
+                                                            </option>
+                                                        </select>
+                                                        <i class="lni lni-chevron-down"></i>
+                                                    </div>
+
+                                                    <div class="exchange-direction">
+                                                        <button type="button" class="switch-currencies">
+                                                            <i class="lni lni-shuffle"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="currency-select-wrapper to">
+                                                        <label>Moeda de destino</label>
+                                                        <select [(ngModel)]="moedaDestino" name="moedaDestino" required>
+                                                            <option *ngFor="let moeda of moedas" [value]="moeda">
+                                                                {{ moeda }}
+                                                            </option>
+                                                        </select>
+                                                        <i class="lni lni-chevron-down"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="modern-convert-button">
+                                                <span class="button-content">
+                                                    <i class="lni lni-reload"></i>
+                                                    Converter agora
+                                                </span>
+                                            </button>
+                                        </form>
+
+                                        <div *ngIf="resultado" class="modern-result-card">
+                                            <div class="result-header">
+                                                <i class="lni lni-checkmark-circle"></i>
+                                                <span>Conversão realizada</span>
+                                            </div>
+                                            <div class="modern-result-content">
+                                                <div class="conversion-details">
+                                                    <div class="from-amount">
+                                                        <span class="amount">{{ valor | number:'1.2-2' }}</span>
+                                                        <span class="currency">{{ moedaOrigem }}</span>
+                                                    </div>
+                                                    <div class="conversion-arrow">
+                                                        <i class="lni lni-arrow-right"></i>
+                                                    </div>
+                                                    <div class="to-amount">
+                                                        <span class="amount">{{ resultado | number:'1.2-2' }}</span>
+                                                        <span class="currency">{{ moedaDestino }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="conversion-footer">
+                                                    <div class="exchange-rate-container">
+                                                        <div class="exchange-rate-box">
+                                                            <div class="rate-icon">
+                                                                <i class="lni lni-stats-up"></i>
+                                                            </div>
+                                                            <div class="rate-info">
+                                                                <span class="rate-label">Taxa de câmbio atual</span>
+                                                                <span class="rate-value">{{ taxa | number:'1.4-4'
+                                                                    }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

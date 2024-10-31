@@ -1,0 +1,87 @@
+/* CSS para o Header Básico */
+
+.header {
+    padding: 10px 0;
+    background-color: #ffebee; /* Fundo rosa claro */
+    border-bottom: 1px solid #f48fb1; /* Borda rosa mais escura */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand .logo-principal {
+    width: 100px;
+    height: auto;
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.navbar-toggler .toggler-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #d5006d; /* Toggler em rosa escuro */
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* Estilos para os Links de Navegação */
+
+.navbar-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-nav .nav-item {
+    list-style: none;
+}
+
+.navbar-nav .nav-link {
+    color: #d5006d; /* Links em rosa escuro */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ff1744; /* Cor de hover em vermelho */
+}
+
+/* Estilos do Botão de Login */
+
+.btn-primary {
+    color: #fff;
+    background-color: #d5006d; /* Botão em rosa escuro */
+    border: none;
+    padding: 6px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff1744; /* Botão em vermelho ao passar o mouse */
+}
+
+/* Responsividade para Navegação no Mobile */
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar-nav {
+        flex-direction: column;
+    }
+}
